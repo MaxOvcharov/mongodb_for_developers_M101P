@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+  app_server:
+    build: .
+    restart: unless-stopped
+    container_name: app_server
+    depends_on:
+      - mongo
+    links:
+     - mongo
+    ports:
+      - 8081:8081
+    command: python /app/homeworks/hw1/hw1_2.py
+  mongo:
+    image: mongo:3.6
+    container_name: mongo_db
+    restart: unless-stopped
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+    volumes:
+      - ./data/db:/data/db
+      - ./dump:/backup
+    ports:
+        - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # mongorestore backup/
