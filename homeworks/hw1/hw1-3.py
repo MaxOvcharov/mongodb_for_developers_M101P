@@ -3,10 +3,6 @@
 import pymongo
 import bottle
 
-# Copyright 2014, MongoDB, Inc.
-# Author: Andrew Erlichson
-
-
 @bottle.get("/hw1/<n>")
 def get_hw1(n):
 
