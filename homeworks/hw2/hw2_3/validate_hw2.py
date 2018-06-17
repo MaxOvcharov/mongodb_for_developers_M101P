@@ -83,8 +83,8 @@ def try_to_login(username, password):
         print("When we tried to login, here is the output we got\n")
         print(result)
         return False
-    except:
-        print(f'The request to {url} failed, so your blog may not be running.')
+    except Exception as e:
+        print(f'The request to {url} failed, so your blog may not be running - {e}')
         raise
 
 
