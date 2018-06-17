@@ -122,10 +122,9 @@ class BlogPostDAO:
             # When done, modify the line below to return the number of
             # documents updated by your modification, rather than just -1.
             find_query = {'permalink': permalink}
-            update_query = {'$push': comment}
+            update_query = {'$push': {'comments': comment}}
             res = self.posts.update_one(find_query, update_query)
-
-            return res  # Change this to return the number of documents updated by the code for HW 3.3
+            return res.modified_count  # Change this to return the number of documents updated by the code for HW 3.3
         except Exception as e:
             print(f'Could not update the collection, error - {e}')
             print(f'Unexpected error: {sys.exc_info()[0]}')
