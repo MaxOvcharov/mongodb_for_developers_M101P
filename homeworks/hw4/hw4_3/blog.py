@@ -70,7 +70,7 @@ def posts_by_tag(tag="notfound"):
     posts_by_tag = posts.get_posts_by_tag(tag, 10)
 
     return bottle.template(
-        PROJECT_PATH + 'blog_template',
+        PROJECT_PATH + '/views/blog_template',
         dict(myposts=posts_by_tag, username=username)
     )
 
