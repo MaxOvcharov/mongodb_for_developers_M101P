@@ -25,8 +25,6 @@ def print_avg_students_score():
         for doc in cursor:
             print(doc)
 
-        # print(f'\nRESULT: {int(res / count)}')
-
     except Exception as e:
         print(f'Error trying to read collection: {type(e)} - {e}')
 
